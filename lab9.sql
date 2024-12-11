@@ -1,4 +1,4 @@
--- 1. Увеличение значения на 10
+-- 1.
 CREATE OR REPLACE FUNCTION increase_value(param INTEGER) 
 RETURNS INTEGER AS $$
 BEGIN
@@ -6,7 +6,7 @@ BEGIN
 END; $$
 LANGUAGE plpgsql;
 
--- 2. Сравнение двух чисел
+-- 2. 
 CREATE OR REPLACE FUNCTION compare_numbers(num1 INTEGER, num2 INTEGER) 
 RETURNS TEXT AS $$
 BEGIN
@@ -20,7 +20,7 @@ BEGIN
 END; $$
 LANGUAGE plpgsql;
 
--- 3. Создание числовой последовательности
+-- 3. 
 CREATE OR REPLACE FUNCTION number_series(n INTEGER) 
 RETURNS TEXT AS $$
 DECLARE
@@ -35,14 +35,14 @@ BEGIN
 END; $$
 LANGUAGE plpgsql;
 
--- 4. Поиск сотрудника по имени
+-- 4.
 CREATE OR REPLACE FUNCTION find_employee(emp_name TEXT) 
 RETURNS TABLE (id INTEGER, name TEXT, salary NUMERIC) AS $$
 BEGIN RETURN QUERY SELECT id, name, salary FROM employees WHERE name = emp_name;
 END; $$
 LANGUAGE plpgsql;
 
--- 5. Список продуктов по категории
+-- 5. 
 CREATE OR REPLACE FUNCTION list_products(category_name TEXT) 
 RETURNS TABLE (product_id INTEGER, product_name TEXT, price NUMERIC) AS $$
 BEGIN
@@ -50,7 +50,7 @@ BEGIN
 END; $$
 LANGUAGE plpgsql;
 
--- 6. Связанные процедуры
+-- 6.
 CREATE OR REPLACE FUNCTION calculate_bonus(salary NUMERIC) 
 RETURNS NUMERIC AS $$
 BEGIN
@@ -70,7 +70,7 @@ BEGIN
 END; $$
 LANGUAGE plpgsql;
 
--- 7. Комплексные вычисления с подблоками
+-- 7. 
 CREATE OR REPLACE FUNCTION complex_calculation(
     num1 INTEGER, num2 INTEGER, str1 TEXT
 ) 
@@ -79,13 +79,8 @@ DECLARE
     numeric_result INTEGER;
     string_result TEXT;
 BEGIN
-    -- Подблок для числовых вычислений
     numeric_result := num1 * num2;
-
-    -- Подблок для строковых операций
     string_result := CONCAT('Processed: ', str1);
-
-    -- Итоговый результат
     RETURN CONCAT(string_result, ', Numeric Result: ', numeric_result);
 END; $$
 LANGUAGE plpgsql;
